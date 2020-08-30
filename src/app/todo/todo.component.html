@@ -1,0 +1,30 @@
+<div class="container">
+    <p>Todo component works!</p>
+    <h1>My To-Do List</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>To-do array from the Todo class blueprint:</p>
+            <div *ngFor='let todo of todoss;let i = index'>
+                
+                <div>
+                    <h4 id={{i}} appStrikethrough>{{todo.name}} due on {{todo.completeDate|date|uppercase}}</h4>
+                    <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+                </div>
+
+                <div *ngIf='todo.showDescription'>
+                    <app-todo-detail  [todo]='todo' (isComplete) = 'deleteTodo($event,i)'></app-todo-detail>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <app-todo-form (addTodo)="addNewTodo($event)"></app-todo-form>
+        </div>
+    </div>
+
+    <p *ngIf='todoss.length > 2'>You have more than two todos.</p>
+
+</div>
+

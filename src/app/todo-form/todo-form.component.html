@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <p>todo-form works!</p>
+    <h2 class="text-center">Create a new To-do:</h2>
+    <hr>
+    <form (ngSubmit)='submitTodo()' #todoForm='ngForm'>
+        <div class="form-group">
+
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="newTodo.name" name="name" #name='ngModel' required>
+
+            <!-- TWO-WAY DATA BINDING -->
+            Display: {{newTodo.name}}
+
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                <p>Name is required!</p>
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="4" [(ngModel)]="newTodo.description" name="description" #description='ngModel' required></textarea>
+
+            <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+                <p>Description is required!</p>
+            </div>
+
+        </div>
+        <div class="form-group">
+            
+            <label for="complete">Completion</label>
+            <input type="date" id="complete" [(ngModel)]="newTodo.completeDate" name="completeDate" #completeDate="ngModel" required>
+
+            <div [hidden]="completeDate.valid || completeDate.pristine" class="alert alert-danger">
+                <p>Completion date is required!</p>
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-success">Add To-do</button>
+
+    </form>
+</div>

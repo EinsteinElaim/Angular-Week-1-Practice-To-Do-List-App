@@ -1,0 +1,10 @@
+<p>todo-detail works!</p>
+<p>
+    {{todo.description}}
+</p>
+
+<!-- Custom days counter pipe here -->
+<p>This to-do item should be completed in  {{todo.completeDate|dateCount}} days.</p>
+
+<button (click)= 'todoDelete(true)' class="btn btn-danger">Delete Todo</button>
+

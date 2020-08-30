@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ToDoList';
+  todo = 'Finish coding Week 1 Angular objectives.'
+
+  todos: string[];
+  
+  constructor(){
+    this.todos = ['Learn Angular', 'Learn Java', 'Learn Python']
+  }
 }
